@@ -345,8 +345,8 @@ export default function LiveVaultsDashboard() {
               </p>
             ) : (
               <>
-                <div>
-                  <div className="mb-2 flex items-baseline justify-between">
+                <div className="border border-concreteMuted/30 bg-gradient-to-br from-surface to-slab/40 p-4">
+                  <div className="mb-3 flex items-baseline justify-between">
                     <span className="text-xs uppercase tracking-wide text-inkMuted">Suggested allocation</span>
                     <span className="font-mono text-sm text-brass">
                       blended ~{(blendedApy * 100).toFixed(2)}% APY
