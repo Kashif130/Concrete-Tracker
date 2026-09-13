@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark theme (default) — same palette as before the theme toggle existed. */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-base: 27 26 24;
+  --color-surface: 36 34 32;
+  --color-surface-raised: 43 41 38;
+  --color-slab: 58 55 51;
+  --color-concrete: 168 162 154;
+  --color-concrete-muted: 111 107 100;
+  --color-ink: 237 233 227;
+  --color-ink-muted: 140 135 125;
+  --color-steel: 91 124 153;
+  --color-steel-bright: 125 160 190;
+  --color-brass: 201 162 39;
+  --color-rust: 181 83 60;
+
+  --grid-line: 168 162 154;
+  --selection-bg: 91 124 153;
+  --selection-fg: 27 26 24;
+  --scrollbar-thumb: 111 107 100;
+  --scrollbar-track: 36 34 32;
+}
+
+/* Light theme */
+[data-theme="light"] {
+  color-scheme: light;
+  --color-base: 245 243 239;
+  --color-surface: 237 234 228;
+  --color-surface-raised: 228 224 216;
+  --color-slab: 214 208 197;
+  --color-concrete: 111 107 100;
+  --color-concrete-muted: 168 162 154;
+  --color-ink: 27 26 24;
+  --color-ink-muted: 90 86 79;
+  --color-steel: 58 90 115;
+  --color-steel-bright: 42 71 94;
+  --color-brass: 138 109 20;
+  --color-rust: 140 63 44;
+
+  --grid-line: 111 107 100;
+  --selection-bg: 58 90 115;
+  --selection-fg: 245 243 239;
+  --scrollbar-thumb: 168 162 154;
+  --scrollbar-track: 237 234 228;
+}
+
+body {
+  background-color: rgb(var(--color-base));
+  background-image:
+    linear-gradient(rgb(var(--grid-line) / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--grid-line) / 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  transition: background-color 0.15s ease;
+}
+
+::selection {
+  background-color: rgb(var(--selection-bg));
+  color: rgb(var(--selection-fg));
+}
+
+* {
+  scrollbar-color: rgb(var(--scrollbar-thumb)) rgb(var(--scrollbar-track));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid rgb(var(--color-steel-bright));
+  outline-offset: 2px;
+}
